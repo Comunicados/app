@@ -9,12 +9,8 @@ class SchoolStaff extends Model {
      */
 
     protected $table = 'school_staff';
-    protected $fillable = ['dni', 'n_legajo', 'fecha_alta', 'activo?', 'suplente_de'];
+    protected $fillable = ['dni', 'n_legajo', 'fecha_alta', 'activo?'];
 
-
-    public function schoolStaff() {
-        return $this->belongsTo(\Comunicados\SchoolStaff::class, 'suplente_de', 'dni');
-    }
 
     public function user() {
         return $this->belongsTo(\Comunicados\User::class, 'dni', 'dni');
@@ -22,14 +18,6 @@ class SchoolStaff extends Model {
 
     public function roles() {
         return $this->belongsToMany(\Comunicados\Role::class, 'staff_role', 'dni', 'rol_id');
-    }
-
-    public function messages() {
-        return $this->hasMany(\Comunicados\Message::class, 'personal_colegio_envia', 'dni');
-    }
-
-    public function schoolStaffs() {
-        return $this->hasMany(\Comunicados\SchoolStaff::class, 'suplente_de', 'dni');
     }
 
     public function staffRoles() {

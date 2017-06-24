@@ -9,7 +9,7 @@ class Role extends Model {
      */
 
     protected $table = 'roles';
-    protected $fillable = ['id', 'cargo'];
+    protected $fillable = ['id', 'cargo', 'crea_dni'];
 
 
     public function schoolStaffs() {

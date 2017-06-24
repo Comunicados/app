@@ -9,7 +9,7 @@ class RolePermission extends Model {
      */
 
     protected $table = 'role_permission';
-    protected $fillable = ['id_rol', 'id_permiso', 'id_school', 'consultar', 'agregar', 'editar', 'eliminar'];
+    protected $fillable = ['id_rol', 'id_permiso', 'admin_asigna', 'consultar', 'agregar', 'editar', 'eliminar'];
 
 
     public function role() {
@@ -20,8 +20,8 @@ class RolePermission extends Model {
         return $this->belongsTo(\Comunicados\Permission::class, 'id_permiso', 'id');
     }
 
-    public function school() {
-        return $this->belongsTo(\Comunicados\School::class, 'id_school', 'id');
+    public function securityAdmin() {
+        return $this->belongsTo(\Comunicados\SecurityAdmin::class, 'admin_asigna', 'dni');
     }
 
 

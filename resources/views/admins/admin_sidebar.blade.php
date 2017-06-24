@@ -26,20 +26,11 @@
             <ul>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-bar-chart'></i><span>Estadísticas</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-user-plus'></i><span>Crear usuarios</span></a>
+                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-book '></i><span>Crear materias y cursos</span></a>
+                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-book '></i><span>Materias y cursos</span></a>
                 </li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-key '></i><span>Roles y permisos</span></a>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Calendario Escolar</span></a></li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mensajes Generales</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                    <ul>
-                        <li><a href='inbox.html'><span>Bandeja de entrada</span></a></li>
-                        <li><a href='new-message.html'><span>Nuevo mensaje</span></a></li>
-                        <li><a href='new-message.html'><span>Borradores</span></a></li>
-                        <li><a href='new-message.html'><span>Bandeja de salida</span></a></li>
-                    </ul>
                 </li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa  fa-cogs'></i><span>Configuración</span></span></a>
                 </li>

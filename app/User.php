@@ -9,8 +9,20 @@ class User extends Model {
      */
 
     protected $table = 'users';
-    protected $fillable = ['dni', 'nombre', 'apellido', 'sexo', 'email', 'password', 'fecha_nacimiento', 'telefono', 'celular', 'direccion', 'localidad', 'provincia', 'foto_url', 'alumno?', 'padre?', 'personal?', 'remember_token'];
+    protected $fillable = ['dni', 'nombre', 'apellido', 'sexo', 'email', 'password', 'fecha_nacimiento', 'telefono', 'celular', 'direccion', 'localidad', 'provincia', 'foto_url', 'tipo', 'remember_token'];
 
+
+    public function messages() {
+        return $this->belongsToMany(\Comunicados\Message::class, 'message_recipient', 'recibe_dni', 'mensaje_id');
+    }
+
+    public function messageRecipients() {
+        return $this->hasMany(\Comunicados\MessageRecipient::class, 'recibe_dni', 'dni');
+    }
+
+    public function messages() {
+        return $this->hasMany(\Comunicados\Message::class, 'user_envia', 'dni');
+    }
 
     public function parent() {
         return $this->hasOne(\Comunicados\Parent::class, 'dni', 'dni');

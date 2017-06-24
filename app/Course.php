@@ -9,12 +9,8 @@ class Course extends Model {
      */
 
     protected $table = 'courses';
-    protected $fillable = ['id', 'aula', 'dias_cursada', 'turno_id'];
+    protected $fillable = ['id', 'grado', 'nivel', 'aula', 'turno'];
 
-
-    public function schedule() {
-        return $this->belongsTo(\Comunicados\Schedule::class, 'turno_id', 'id');
-    }
 
     public function staffSchoolCourses() {
         return $this->hasMany(\Comunicados\StaffSchoolCourse::class, 'curso_id', 'id');

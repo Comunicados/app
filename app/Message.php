@@ -9,35 +9,35 @@ class Message extends Model {
      */
 
     protected $table = 'messages';
-    protected $fillable = ['id', 'detalle', 'padre_envia', 'mensaje_tipo_id', 'personal_colegio_envia'];
+    protected $fillable = ['id', 'asunto', 'mensaje', 'mensaje_padre_id', 'mensaje_tipo_id', 'user_envia', 'escuela_id', 'fecha_creacion'];
 
 
-    public function parent() {
-        return $this->belongsTo(\Comunicados\Parent::class, 'padre_envia', 'dni');
+    public function user() {
+        return $this->belongsTo(\Comunicados\User::class, 'user_envia', 'dni');
     }
 
-    public function schoolStaff() {
-        return $this->belongsTo(\Comunicados\SchoolStaff::class, 'personal_colegio_envia', 'dni');
+    public function school() {
+        return $this->belongsTo(\Comunicados\School::class, 'escuela_id', 'id');
+    }
+
+    public function message() {
+        return $this->belongsTo(\Comunicados\Message::class, 'mensaje_padre_id', 'id');
     }
 
     public function messagesType() {
         return $this->belongsTo(\Comunicados\MessagesType::class, 'mensaje_tipo_id', 'id');
     }
 
-    public function parents() {
-        return $this->belongsToMany(\Comunicados\Parent::class, 'parent_message', 'mensaje_id', 'padre_id');
+    public function users() {
+        return $this->belongsToMany(\Comunicados\User::class, 'message_recipient', 'mensaje_id', 'recibe_dni');
     }
 
-    public function students() {
-        return $this->belongsToMany(\Comunicados\Student::class, 'student_message', 'mensaje_id', 'alumno_id');
+    public function messageRecipients() {
+        return $this->hasMany(\Comunicados\MessageRecipient::class, 'mensaje_id', 'id');
     }
 
-    public function parentMessages() {
-        return $this->hasMany(\Comunicados\ParentMessage::class, 'mensaje_id', 'id');
-    }
-
-    public function studentMessages() {
-        return $this->hasMany(\Comunicados\StudentMessage::class, 'mensaje_id', 'id');
+    public function messages() {
+        return $this->hasMany(\Comunicados\Message::class, 'mensaje_padre_id', 'id');
     }
 
 

@@ -20,10 +20,6 @@ class Student extends Model {
         return $this->belongsToMany(\Comunicados\Evaluation::class, 'student_evaluation', 'alumno_id', 'evaluacion_id');
     }
 
-    public function messages() {
-        return $this->belongsToMany(\Comunicados\Message::class, 'student_message', 'alumno_id', 'mensaje_id');
-    }
-
     public function parents() {
         return $this->belongsToMany(\Comunicados\Parent::class, 'student_parent', 'alumno_id', 'padre_id');
     }
@@ -34,10 +30,6 @@ class Student extends Model {
 
     public function studentEvaluations() {
         return $this->hasMany(\Comunicados\StudentEvaluation::class, 'alumno_id', 'dni');
-    }
-
-    public function studentMessages() {
-        return $this->hasMany(\Comunicados\StudentMessage::class, 'alumno_id', 'dni');
     }
 
     public function studentParents() {

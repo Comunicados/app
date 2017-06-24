@@ -31,13 +31,15 @@
         <!--- Divider -->
         <div id="sidebar-menu">
             <ul>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='icon-home-3'></i><span>Asistencias</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                <li class='has_sub'><a class='active' href='javascript:void(0);'><i class='icon-home-3'></i><span>Home</span></span></a>
+                </li>
+                <li class='has_sub'><a href='javascript:void(0);'><i class='glyphicon glyphicon-check'></i><span>Asistencias</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
-                        <li><a href='' class='active'><span>Ver asistencias</span></a></li>
+                        <li><a href=''><span>Ver asistencias</span></a></li>
                         <li><a href=''><span>Subir Justificativo</span></a></li>
                     </ul>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>Calificaciones</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-pencil-square-o'></i><span>Calificaciones</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
                         <li><a href='alerts.html'><span>Matematica 1</span></a></li>
                         <li><a href='buttons.html'><span>Lengua y literatura</span></a></li>
