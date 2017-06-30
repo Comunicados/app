@@ -1,15 +1,33 @@
-<?php namespace Comunicados;
+<?php 
 
+namespace Comunicados;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+
+class User extends Authenticatable {
+
+    use Notifiable;
 
     /**
-     * Generated
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-
     protected $table = 'users';
-    protected $fillable = ['dni', 'nombre', 'apellido', 'sexo', 'email', 'password', 'fecha_nacimiento', 'telefono', 'celular', 'direccion', 'localidad', 'provincia', 'foto_url', 'tipo', 'remember_token'];
+    protected $fillable = ['dni', 'nombre', 'apellido', 'sexo', 'email', 'password', 'fecha_nacimiento', 'telefono', 'celular', 'direccion', 'localidad', 'provincia', 'foto_url', 'tipo','remember_token'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
 
 
     public function messages() {
@@ -20,7 +38,7 @@ class User extends Model {
         return $this->hasMany(\Comunicados\MessageRecipient::class, 'recibe_dni', 'dni');
     }
 
-    public function messages() {
+    public function messages02() {
         return $this->hasMany(\Comunicados\Message::class, 'user_envia', 'dni');
     }
 
@@ -36,5 +54,8 @@ class User extends Model {
         return $this->hasOne(\Comunicados\Student::class, 'dni', 'dni');
     }
 
+    public function admin() {
+        return $this->hasOne(\Comunicados\SecurityAdmin::class, 'dni', 'dni');
+    }
 
 }

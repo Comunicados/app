@@ -2,14 +2,17 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class SchoolStaff extends Model {
 
     /**
      * Generated
      */
 
+
     protected $table = 'school_staff';
-    protected $fillable = ['dni', 'n_legajo', 'fecha_alta', 'activo?'];
+    protected $primaryKey = 'dni';
+    protected $fillable = ['dni', 'n_legajo', 'fecha_alta', 'estado'];
 
 
     public function user() {

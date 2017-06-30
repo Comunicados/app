@@ -4,6 +4,7 @@ namespace Comunicados\Http\Controllers\Auth;
 
 use Comunicados\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -36,4 +37,31 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function username()
+    {
+        return 'dni';
+    }
+
+    public function redirectPath()
+    {
+        switch(Auth::user()->tipo)
+        {
+            case 'admin':
+                return '/admin';
+                break;
+            case 'tutor':
+                return '/tutor';
+                break;
+            case 'alumno':
+                return '/alumno';
+                break;
+            case 'personal':
+                return '/personal';
+                break;
+        }
+
+    }
+
 }
+

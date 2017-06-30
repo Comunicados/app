@@ -53,7 +53,7 @@
                                     <!-- Message -->
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <h3 class="semibold">Greetings! You just won the lottery.</h3>
+                                            <h3 class="semibold">{{$mensaje->titulo}}</h3>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="btn-toolbar pull-right" role="toolbar">
@@ -70,24 +70,23 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mail-sender-details">
-                                                <img src="images/users/chat/19.jpg" class="img-circle sender-photo"> <small><b>Carmen Electron</b> <span class="text-muted">carmen@electron.com</span><br><span class="text-muted">January 17, 2014 at 04:45 AM (PDT)</span></small>
+                                                <img src="images/users/chat/19.jpg" class="img-circle sender-photo"> <small><b>{{$envia->nombre}} {{$envia->apellido}}</b> <span class="text-muted">{{$envia->email}}</span><br><span class="text-muted">{{$mensaje->email}}</span></small>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 text-right">
                                             <div class="btn-group spaced">
-                                                <a class="btn btn-danger"><i class="icon-reply-1"></i> Reply</a>
+                                                <a class="btn btn-danger"><i class="icon-reply-1"></i> Constestar</a>
                                                 <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                                                     <span class="caret"></span>
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </a>
                                                 <ul class="dropdown-menu text-left pull-right" role="menu">
-                                                    <li><a href="#"><i class="icon-reply-all"></i> Reply All</a></li>
+                                                    <li><a href="#"><i class="icon-reply-all"></i> Contestar a todos</a></li>
                                                     <li><a href="#"><i class="icon-forward-1"></i> Forward</a></li>
-                                                    <li><a href="#"><i class="icon-print-1"></i> Print</a></li>
-                                                    <li><a href="#"><i class="icon-target-2"></i> Mark as Spam</a></li>
-                                                    <li><a href="#"><i class="icon-flag"></i> Report Pishing</a></li>
+                                                    <li><a href="#"><i class="icon-print-1"></i> Imprimir</a></li>
+                                                    <li><a href="#"><i class="icon-target-2"></i> Marcar como SPAM</a></li>
                                                     <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-trash"></i> Move to Trash</a></li>
+                                                    <li><a href="#"><i class="icon-trash"></i> Eliminar</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -95,39 +94,22 @@
                                     <div class="row">
                                         <div class="col-sm-12 mail-body">
                                             <hr>
-                                            <p>
-                                                Dear John,
-                                            </p>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper dictum elementum. Aenean mollis felis in laoreet volutpat. In viverra, metus in porta hendrerit, eros erat suscipit mauris, in interdum nisi nisl ac neque. Morbi dictum consectetur bibendum. Etiam risus magna, aliquet eget accumsan eleifend, lobortis ornare orci. Nam quam sapien, fermentum vitae blandit nec, ullamcorper eu libero. Donec viverra hendrerit aliquet.
-                                            </p>
-                                            <p>
-                                                Praesent augue velit, pharetra in aliquet id, faucibus et purus. Fusce sed velit tellus. Integer vel augue dignissim, ultrices libero placerat, mattis risus. Maecenas suscipit bibendum sem, eget malesuada odio dignissim eu. Pellentesque venenatis mi at mollis accumsan. Praesent massa velit, luctus ac erat eget, bibendum venenatis erat. Nulla in erat elit. Quisque dui mauris, laoreet sit amet enim in, auctor vestibulum est. Cras ac velit sed dui hendrerit feugiat. Sed tincidunt sapien at velit commodo, et interdum purus rhoncus. Nam condimentum pretium lectus non sagittis. Phasellus porttitor metus vel accumsan luctus. Phasellus varius odio ut lacinia molestie. Maecenas pellentesque vel diam non facilisis. Phasellus egestas massa elit, vitae tincidunt arcu cursus suscipit.
-                                            </p>
-                                          
-                                            <p>
-                                                Sincerely,
-                                                <br>Carmen
-                                            </p>
+                                            {{$mensaje->mensaje}}
                                             <hr>
-                                            <blockquote class="mail-reply">
-                                                <small class="pull-right">
-                                                    Sent on <cite title="Source Title">January 16, 2014 at 09:15 PM (PDT)</cite>
-                                                </small>
-                                                <p>
-                                                    Hello Carmen,
-                                                </p>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper dictum elementum. Aenean mollis felis in laoreet volutpat. In viverra, metus in porta hendrerit, eros erat suscipit mauris, in interdum nisi nisl ac neque. Morbi dictum consectetur bibendum. Etiam risus magna, aliquet eget accumsan eleifend, lobortis ornare orci. Nam quam sapien, fermentum vitae blandit nec, ullamcorper eu libero. Donec viverra hendrerit aliquet.
-                                                </p>
-                                               
-                                                <p>
-                                                    Regards, John
-                                                    <br>Important Affairs Manager
-                                                </p>
-                                            </blockquote>
+                                            @if($mensaje->mensaje_padre_id)
+                                                <blockquote class="mail-reply">
+                                                    <small class="pull-right">
+                                                        Enviado el
+                                                        <cite title="Source Title">
+                                                        {{$mensaje_padre->created_at}}
+                                                        </cite>
+                                                    </small>
+                                                    {{$mensaje_padre->mensaje}}
+                                                </blockquote>
+                                            @endif    
                                         </div>
                                     </div>
+                                    @if($mensaje->adjunto)
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <hr>
@@ -159,19 +141,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif  
                                 </div>
                             </div>
-                            <div class="widget lightblue-2">
-                                <div class="widget-header transparent">
-                                    <h2>Reply Mail</h2>
-                                    <div class="additional-btn">
-                                        <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
-                                    </div>
-                                </div>
-                                <div class="widget-content padding">
-                                    <textarea class="summernote-small form-control"></textarea>
-                                </div>
-                            </div>
+                            
                         </div>
                         <!-- End div .col-md-10 -->
                     </div>

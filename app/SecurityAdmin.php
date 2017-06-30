@@ -9,6 +9,7 @@ class SecurityAdmin extends Model {
      */
 
     protected $table = 'security_admins';
+    protected $primaryKey = 'dni';
     protected $fillable = ['dni', 'nombre', 'apellido', 'email', 'telefono', 'escuela_id'];
 
 
@@ -18,6 +19,10 @@ class SecurityAdmin extends Model {
 
     public function rolePermissions() {
         return $this->hasMany(\Comunicados\RolePermission::class, 'admin_asigna', 'dni');
+    }
+
+    public function user() {
+        return $this->belongsTo(\Comunicados\User::class, 'dni', 'dni');
     }
 
 

@@ -3,6 +3,12 @@
 namespace Comunicados\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Comunicados\Message;
+use Comunicados\User;
+use Session;
+use Redirect;
+use Auth;
+use DB;
 
 class MensajeController extends Controller
 {
@@ -11,9 +17,21 @@ class MensajeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $mensajes =DB::table('messages')
+                ->join('message_recipient', 'messages.id', '=', 'message_recipient.id')
+                ->join('messages_types', 'messages.mensaje_tipo_id', '=', 'messages_types.id')
+                ->select('messages.*','message_recipient.*','messages_types.*')
+                ->where('message_recipient.recibe_dni',Auth::user()->dni)
+                ->paginate(20);
+        return view ('commons/listar_mensajes', compact('mensajes'));
     }
 
     /**
@@ -45,7 +63,17 @@ class MensajeController extends Controller
      */
     public function show($id)
     {
-        //
+        // $mensaje = DB::table('messages')
+        //         //->join('users', 'messages.user_envia', '=', 'users.dni')
+        //         ->select('messages.*')
+        //         ->where('messages.id','$id')
+        //         ->get();
+        $mensaje = Message::find($id);
+        if($mensaje->mensaje_padre_id){
+            $mensaje_padre = Message::find($mensaje->mensaje_padre_id);
+        }
+        $envia=User::where('dni',$mensaje->user_envia)->first();
+        return view ('commons/leer_mensajes', compact('mensaje','envia','mensaje_padre'));
     }
 
     /**
