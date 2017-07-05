@@ -27,10 +27,6 @@ class AdminController extends Controller
         return view ('admins/estadisticas');
     }
 
-    public function showProfile()
-    {
-        return view ('commons/perfil');
-    }
 
     public function showStaff()
     {

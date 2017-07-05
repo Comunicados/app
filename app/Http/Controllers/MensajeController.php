@@ -5,6 +5,7 @@ namespace Comunicados\Http\Controllers;
 use Illuminate\Http\Request;
 use Comunicados\Message;
 use Comunicados\User;
+use Comunicados\MessageRecipient;
 use Session;
 use Redirect;
 use Auth;
@@ -41,7 +42,7 @@ class MensajeController extends Controller
      */
     public function create()
     {
-        //
+        return view('commons/crear_mensaje');
     }
 
     /**
@@ -52,7 +53,10 @@ class MensajeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mensaje= new Message($request->all());
+        $mensaje->save();
+        //$mensaje->titulo= 
+        dd('Usuario creado');
     }
 
     /**

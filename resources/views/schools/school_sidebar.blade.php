@@ -13,7 +13,7 @@
                 <a href="" class="rounded-image profile-image"><img src="{{asset('img/users/user-100.jpg')}}"></a>
             </div>
             <div class="col-xs-6">
-                <div class="profile-text">Prof. <b>Jirafales</b></div>
+                <div class="profile-text">{!!(Auth::user()->tipo)!!}. <b>{!!(Auth::user()->nombre)!!}</b></div>
             </div>
             <div class="clearfix"></div>
             <hr>
@@ -45,24 +45,18 @@
         <!--- Divider -->
         <div id="sidebar-menu">
             <ul>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-pencil-square-o'></i><span>Crear Evaluaciones</span></a>
+                <li><a href="{!!URL::to('/personal')!!}"><i class='fa fa-pencil-square-o'></i><span>Crear Evaluaciones</span></a></li>
+                <li><a href="{!!URL::to('/personal')!!}"><i class='fa fa-sort-numeric-desc'></i><span>Cargar calificaciones</span></a></li>
+                <li><a href="{!!URL::to('/personal')!!}"><i class='fa fa-book'></i><span>Temario</span></a></li>
+                <li><a href="{!!URL::to('/personal/asistencia')!!}"><i class='icon-pencil-3'></i><span>Tomar asistencia</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-sort-numeric-desc '></i><span>Cargar calificaciones</span></a>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-book '></i><span>Temario</span></a>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Tomar asistencia</span></a>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Calendario Escolar</span></a></li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mensajes</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
-                        <li><a href='inbox.html'><span>Bandeja de entrada</span></a></li>
-                        <li><a href='new-message.html'><span>Nuevo mensaje</span></a></li>
-                        <li><a href='new-message.html'><span>Borradores</span></a></li>
-                        <li><a href='new-message.html'><span>Bandeja de salida</span></a></li>
+                        <li><a href="{!!URL::to('/personal/mensajes/')!!}"><span>Bandeja de entrada</span></a></li>
+                        <li><a href="{!!URL::to('/personal/mensajes/crear')!!}"><span>Nuevo mensaje</span></a></li>
+                        <li><a href="{!!URL::to('/personal/mensajes/')!!}"><span>Borradores</span></a></li>
+                        <li><a href="{!!URL::to('/personal/mensajes/')!!}"><span>Bandeja de salida</span></a></li>
                     </ul>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa  fa-cogs'></i><span>Configuración</span></span></a>
                 </li>
             </ul>
             <div class="clearfix"></div>

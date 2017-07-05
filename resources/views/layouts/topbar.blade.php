@@ -27,17 +27,6 @@
                                     <a href="javascript:;" data-app="calc" data-status="inactive"><i class="fa fa-calculator"></i>Calculadora</a>
                                 </div>
                             </div>
-                            <div class="row stacked">
-                                <div class="col-xs-4">
-                                    <a href="javascript:;" data-app="weather-widget" data-status="active"><i class="icon-cloud-3"></i>Clima</a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="javascript:;" data-app="calendar-widget2" data-status="active"><i class="icon-calendar"></i>Calendario</a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="javascript:;" data-app="stock-app" data-status="inactive"><i class="icon-chart-line"></i>Stock</a>
-                                </div>
-                            </div>
                             <div class="clearfix"></div>
                         </div>
                     </li>
@@ -135,9 +124,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{asset('img/users/user-35.jpg')}}"></span> 
                             <strong>{{ Auth::user()->nombre }}</strong> <i class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Mi perfil</a></li>
+                            <li><a href="{!!URL::to('/perfil')!!}">Mi perfil</a></li>
                             <li><a href="#">Cambiar Password</a></li>
-                            <li><a href="#">Configuración</a></li>
+                            <li><a href="{!!URL::to('/configuracion')!!}">Configuración</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="icon-help-2"></i> Ayuda</a></li>
                             <li><a href="{{ route('logout') }}"

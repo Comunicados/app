@@ -52,7 +52,7 @@
 
 
 
-                @include('parents.footer')
+                @include('layouts.footer')
 @endsection
 
 

@@ -9,7 +9,13 @@
 
 
 @section ('sidebar')
-	@include('schools.school_sidebar')
+    @if(Auth::user()->tipo=="personal")
+        @include('schools.school_sidebar')
+    @elseif(Auth::user()->tipo=="tutor")
+        @include('parents.parents_sidebar')
+    @elseif(Auth::user()->tipo=="alumno")
+        @include('students.student_sidebar')
+    @endif
 @endsection
 
 @section ('content')

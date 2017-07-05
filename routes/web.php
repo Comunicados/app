@@ -15,12 +15,17 @@ Route::get('/',function(){
 	return view ('auth/login');
 });
 
+Route::get('/perfil', function () {
+        return view ('commons/perfil');
+    });
+Route::get('/configuracion', function () {
+        return view ('commons/configuracion');
+    });
 
 
 Route::prefix('admin')->group(function () {
 
     Route::get('/', 'AdminController@index');
-    Route::get('/perfil', 'AdminController@showProfile');
     Route::get('/personal', 'AdminController@showStaff');
     Route::get('/personal/editar/{dni}', 'AdminController@editStaff');
     Route::get('/personal/actualizar/{dni}', 'AdminController@updateStaff');
@@ -31,10 +36,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('tutor')->group(function () {
-
-	Route::get('/perfil', function () {
-        return view ('commons/perfil');
-    });
 
     Route::get('/', function () {
         return view ('parents/index');
@@ -85,9 +86,6 @@ Route::prefix('tutor')->group(function () {
 
 Route::prefix('alumno')->group(function () {
 
-	Route::get('/perfil', function () {
-        return view ('commons/perfil');
-    });
 
     Route::get('/', function () {
         return view ('students/index');
@@ -128,9 +126,7 @@ Route::prefix('alumno')->group(function () {
 });
 
 Route::prefix('personal')->group(function () {
-	Route::get('/perfil', function () {
-        return view ('commons/perfil');
-    });
+
 
     Route::get('/', function () {
         return view ('schools/index');

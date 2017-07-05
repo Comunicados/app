@@ -13,7 +13,7 @@
                 <a href="" class="rounded-image profile-image"><img src="{{asset('img/users/user-100.jpg')}}"></a>
             </div>
             <div class="col-xs-8">
-                <div class="profile-text">Dir. <b>Luis Carris</b></div>
+                <div class="profile-text">{!!(Auth::user()->tipo)!!}. <b>{!!(Auth::user()->nombre)!!}</b></div>
                 <div class="profile-button">Escuela Nº12. San Justo</b></div>
             </div>
         </div>
@@ -24,15 +24,13 @@
         <!--- Divider -->
         <div id="sidebar-menu">
             <ul>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-bar-chart'></i><span>Estadísticas</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin')!!}"><i class='fa fa-bar-chart'></i><span>Estadísticas</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/personal')!!}"><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-book '></i><span>Materias y cursos</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias y cursos</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-key '></i><span>Roles y permisos</span></a>
-                </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa  fa-cogs'></i><span>Configuración</span></span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/roles')!!}"><i class='fa fa-key '></i><span>Roles y permisos</span></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
