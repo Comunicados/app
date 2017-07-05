@@ -68,7 +68,7 @@
                                     <i class="fa fa-note"></i>
                                 </div>
                                 <div class="text-box">
-                                    <p class="maindata"><b>Matrias</b> Cursando</p>
+                                    <p class="maindata"><b>Materias</b> Cursando</p>
                                     <h2 class="text-center"><span class="animate-number" data-value="12" data-duration="1500">0</span></h2>
 
                                     <div class="clearfix"></div>

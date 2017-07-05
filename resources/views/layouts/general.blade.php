@@ -29,7 +29,8 @@
     <!-- Extra CSS Libraries Start -->
 
 	@yield('styles')
-
+	<link href="{{asset('assets/fullcalendar/fullcalendar.css')}}" rel="stylesheet" />
+	
 	<!-- Extra CSS Libraries End -->
 
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -131,6 +132,8 @@
 	<script src="{{asset('js/init.js')}}"></script>
 	
 	<!-- Page Specific JS Libraries -->
+	<script src="{{asset('assets/fullcalendar/fullcalendar.min.js')}}"></script>
+	<script src="{{asset('js/pages/calendar.js')}}"></script>
 	@yield('javascript')
 </body>
 </html>
