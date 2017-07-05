@@ -40,7 +40,9 @@ Route::prefix('tutor')->group(function () {
         return view ('parents/index');
     });
 
-    Route::get('asistencias', 'AsistenciaController@index');
+    Route::get('/asistencias', function(){
+		return view ('commons/asistencias');
+	});
 
     Route::get('/justificativo',function(){
 		return view ('parents/justificativo');
@@ -63,6 +65,21 @@ Route::prefix('tutor')->group(function () {
 	Route::get('/comportamiento', function () {
         return view ('commons/comportamiento');
     });
+
+    Route::prefix('calificaciones')->group(function() {
+            Route::get('/mat1', function () {
+                return view ('students/mat1');
+            });
+            Route::get('/lenguaylit', function () {
+                return view ('students/lenguaylit');
+            });
+            Route::get('/cssociales2', function () {
+                return view ('students/cssociales2');
+            });
+            Route::get('/culturayartecont', function () {
+                return view ('students/culturayartecont');
+            });
+        });
 
 });
 
@@ -93,7 +110,21 @@ Route::prefix('alumno')->group(function () {
 	Route::get('/comportamiento', function () {
         return view ('commons/comportamiento');
     });
-
+        
+        Route::prefix('calificaciones')->group(function() {
+            Route::get('/mat1', function () {
+                return view ('students/mat1');
+            });
+            Route::get('/lenguaylit', function () {
+                return view ('students/lenguaylit');
+            });
+            Route::get('/cssociales2', function () {
+                return view ('students/cssociales2');
+            });
+            Route::get('/culturayartecont', function () {
+                return view ('students/culturayartecont');
+            });
+        });
 });
 
 Route::prefix('personal')->group(function () {
@@ -111,7 +142,7 @@ Route::prefix('personal')->group(function () {
 
     Route::resource('/temario', 'TemarioController');
 
-    Route::resource('/asistencia', 'AsistenciaController');
+    Route::resource('/asistencias', 'AsistenciaController');
 
     Route::resource('/calendario', 'CalendarioController');
 

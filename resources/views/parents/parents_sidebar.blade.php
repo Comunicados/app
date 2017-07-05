@@ -35,21 +35,21 @@
                 </li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='glyphicon glyphicon-check'></i><span>Asistencias</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
-                        <li><a href=''><span>Ver asistencias</span></a></li>
+                        <li><a href='/tutor/asistencias'><span>Ver asistencias</span></a></li>
                         <li><a href=''><span>Subir Justificativo</span></a></li>
                     </ul>
                 </li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-pencil-square-o'></i><span>Calificaciones</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
-                        <li><a href='alerts.html'><span>Matematica 1</span></a></li>
-                        <li><a href='buttons.html'><span>Lengua y literatura</span></a></li>
-                        <li><a href='calendar.html'><span>Cienas Sociales 2</span></a></li>
-                        <li><a href='grid.html'><span>Cultura y Arte contemporánea</span></a></li>
+                        <li><a href='/tutor/calificaciones/mat1'><span>Matemática 1</span></a></li>
+                        <li><a href='/tutor/calificaciones/lenguaylit'><span>Lengua y literatura</span></a></li>
+                        <li><a href='/tutor/calificaciones/cssociales2'><span>Ciencias Sociales 2</span></a></li>
+                        <li><a href='/tutor/calificaciones/culturayartecont'><span>Cultura y Arte contemporánea</span></a></li>
                     </ul>
                 </li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Firmar Permisos</span></a>
                 </li>
-                <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Calendario Escolar</span></a></li>
+                <li class='has_sub'><a href='tutor/calendario'><i class='fa fa-table'></i><span>Calendario Escolar</span></a></li>
                 <li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Mensajes privados</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     <ul>
                         <li><a href='inbox.html'><span>Bandeja de entrada</span></a></li>
