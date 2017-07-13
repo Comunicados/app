@@ -22,7 +22,7 @@
 
 @section ('content')
 	            <div class="page-heading">
-            		<h1><i class='fa fa-envelope'></i>Listado de cursos</h1>
+            		<h1><i class='fa fa-calendar'></i>Listado de cursos</h1>
             	</div>
             	<!-- Page Heading End-->
 				<!-- Begin Inbox -->
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="mail-list">
 							<div class="clearfix"></div>
 							
@@ -76,6 +76,18 @@
 							<!-- Message table -->
 							<div class="table-responsive">
 								<table class="table table-hover table-message">
+									<thead>
+										<tr class="unread">
+											<td style="width: 20px"></td>
+											<td>ID</td>
+											<td>GRADO</td>
+											<td>NIVEL</td>
+											<td>AULA</td>
+											<td>TURNO</td>
+											<td>FECHA</td>
+											<td>OPERACION</td>											
+										</tr>									
+									</thead>
 									<tbody>
 										@foreach($courses as $course)
 										<tr class="unread">
@@ -86,7 +98,9 @@
 											<td>{{$course->aula}}</td>
 											<td>{{$course->turno}}</td>
 											<td>{{$course->created_at}}</td>
-											<td><a href="{{Request::url('/admin/cursos/show')}}/{{$course->id}}">VER</a></td>											
+											<td>
+											<a href="{{Request::url('/admin/cursos/show')}}/{{$course->id}}" class="btn btn-success btn-sm" role="button">Ver</a>
+											</td>											
 										</tr>
 
 										@endforeach

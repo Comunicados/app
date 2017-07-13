@@ -22,7 +22,7 @@
 @section ('content')
 	            <!-- Page Heading Start -->
                 <div class="page-heading">
-                    <h1><i class='fa fa-user'> </i>&nbsp;&nbsp;Ver Escuela</h1>
+                    <h1><i class='fa fa-bell-o'> </i>&nbsp;&nbsp;Ver Escuela</h1>
                 </div>
                 <!-- Page Heading End-->
                 <form class="form-horizontal">

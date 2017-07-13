@@ -22,7 +22,7 @@
 
 @section ('content')
 	            <div class="page-heading">
-            		<h1><i class='fa fa-envelope'></i>Listado de escuelas</h1>
+            		<h1><i class='fa fa-bell-o'></i>Listado de escuelas</h1>
             	</div>
             	<!-- Page Heading End-->
 				<!-- Begin Inbox -->
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="mail-list">
 							<div class="clearfix"></div>
 							
@@ -76,6 +76,17 @@
 							<!-- Message table -->
 							<div class="table-responsive">
 								<table class="table table-hover table-message">
+									<thead>
+									     <tr class="unread">
+											<td style="width: 20px"></td>
+											<td>NOMBRE</td>
+											<td>NUMERO</td>
+											<td>LOCALIDAD</td>
+											<td>PROVINCIA</td>
+											<td>FECHA</td>
+											<td>OPERACION</td>											
+										</tr>									
+									</thead>
 									<tbody>
 										@foreach($schools as $school)
 										<tr class="unread">
@@ -85,7 +96,9 @@
 											<td>{{$school->localidad}}</td>
 											<td>{{$school->provincia}}</td>
 											<td>{{$school->created_at}}</td>
-											<td><a href="{{Request::url('/admin/escuelas/show')}}/{{$school->id}}">VER</a></td>											
+											<td>
+											<a href="{{Request::url('/admin/escuelas/show')}}/{{$school->id}}" class="btn btn-success btn-sm" role="button">Ver</a>
+											</td>											
 										</tr>
 
 										@endforeach
