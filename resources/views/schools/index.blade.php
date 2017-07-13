@@ -1,6 +1,6 @@
 @extends('layouts.general')
 
-@section('title','Comunicados- Acceso Docentes')
+@section('title','Comunicados- Acceso Admin')
 
 
 @section ('styles')
@@ -8,7 +8,15 @@
 
 
 @section ('sidebar')
-	@include('schools.school_sidebar')
+  @if(Auth::user()->tipo=="personal")
+    @include('schools.school_sidebar')
+  @elseif(Auth::user()->tipo=="tutor")
+    @include('parents.parents_sidebar')
+  @elseif(Auth::user()->tipo=="alumno")
+    @include('students.student_sidebar')
+  @elseif(Auth::user()->tipo=="admin")
+    @include('admins.admin_sidebar')
+  @endif
 @endsection
 
 @section ('content')

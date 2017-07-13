@@ -1,6 +1,6 @@
 @extends('layouts.general')
 
-@section('title','Comunicados- Ver Escuela')
+@section('title','Comunicados - Ver Escuela')
 
 
 @section ('styles')
