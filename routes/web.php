@@ -29,10 +29,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/personal/editar/{dni}', 'AdminController@editStaff');
     Route::get('/personal/actualizar/{dni}', 'AdminController@updateStaff');
     Route::get('/personal/eliminar/{dni}', 'AdminController@deleteStaff');
+
 	Route::get('/escuelas', 'EscuelaController@index');
 	Route::get('/escuelas/show/{id}', 'EscuelaController@show');
+	
+	Route::get('/materias', 'MateriaController@index');
+	Route::get('/materias/show/{id}', 'MateriaController@show');
+	
+	Route::get('/cursos', 'CursoController@index');
+	Route::get('/cursos/show/{id}', 'CursoController@show');	
+	
     Route::resource('/usuarios', 'UsuarioController');
     Route::resource('/materias', 'MateriaController');
+	Route::resource('/cursos', 'CursoController');
     Route::resource('/roles', 'RoleController');
     Route::resource('/escuelas', 'EscuelaController');	
 });

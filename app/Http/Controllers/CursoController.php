@@ -3,15 +3,13 @@
 namespace Comunicados\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Comunicados\Subject;
-use Comunicados\User;
-use Comunicados\School;
+use Comunicados\Course;
 use Session;
 use Redirect;
 use Auth;
 use DB;
 
-class MateriaController extends Controller
+class CursoController extends Controller
 {
 	
     public function __construct()
@@ -26,13 +24,10 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        $subjects =DB::table('subjects')
-                ->join('schools', 'schools.id', '=', 'subjects.escuela_id')
-                ->join('users', 'subjects.profesor', '=', 'users.dni')		
-                ->select('subjects.*','schools.nombre as nombre_escuela','users.*')
+        $courses =DB::table('courses')
+                ->select('courses.*')
                 ->paginate(20);
-				
-        return view ('\subjects/listar_materias', compact('subjects'));
+        return view ('\courses/listar_cursos', compact('courses'));
     }
 
     /**
@@ -42,7 +37,7 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        return view('\subjects/crear_materia');
+        return view('\courses/crear_curso');
     }
 
     /**
@@ -53,9 +48,9 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-        $subject= new Subject($request->all());
-        $subject->save();
-        dd('Materia creada');
+        $course= new Course($request->all());
+        $courses->save();
+        dd('Curso creado');
     }
 
     /**
@@ -66,10 +61,8 @@ class MateriaController extends Controller
      */
     public function show($id)
     {
-        $subject  = Subject::find($id);
-		$school   = School::where('id',$subject->escuela_id)->first();
-		$profesor = User::where('dni',$subject->profesor)->first();
-        return view ('\subjects/ver_materia', compact('subject','school','profesor'));
+        $course = Course::find($id);
+        return view ('\courses/ver_curso', compact('course'));
     }
 
     /**

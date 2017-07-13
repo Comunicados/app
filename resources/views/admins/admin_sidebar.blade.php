@@ -28,8 +28,10 @@
                 </li>
                 <li class='has_sub'><a href="{!!URL::to('/admin/personal')!!}"><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
                 </li>
-                <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias y cursos</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias</span></a>
                 </li>
+                <li class='has_sub'><a href="{!!URL::to('/admin/cursos')!!}"><i class='fa fa-book '></i><span>Cursos</span></a>
+                </li>				
                 <li class='has_sub'><a href="{!!URL::to('/admin/roles')!!}"><i class='fa fa-key '></i><span>Roles y permisos</span></a>
                 </li>
                 <li class='has_sub'><a href="{!!URL::to('/admin/escuelas')!!}"><i class='fa fa-key '></i><span>Escuelas</span></a>
