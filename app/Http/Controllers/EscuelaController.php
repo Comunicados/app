@@ -3,6 +3,11 @@
 namespace Comunicados\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Comunicados\School;
+use Session;
+use Redirect;
+use Auth;
+use DB;
 
 class EscuelaController extends Controller
 {
@@ -11,9 +16,18 @@ class EscuelaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $schools =DB::table('schools')
+                ->select('schools.*')
+                ->paginate(20);
+        return view ('\schools/listar_escuelas', compact('schools'));
     }
 
     /**
@@ -23,7 +37,7 @@ class EscuelaController extends Controller
      */
     public function create()
     {
-        //
+        return view('\schools/crear_escuela');
     }
 
     /**
@@ -34,7 +48,9 @@ class EscuelaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $school= new School($request->all());
+        $school->save();
+        dd('Escuela creada');
     }
 
     /**
@@ -45,7 +61,8 @@ class EscuelaController extends Controller
      */
     public function show($id)
     {
-        //
+        $school = School::find($id);
+        return view ('\schools/ver_escuela', compact('school'));
     }
 
     /**
@@ -81,4 +98,5 @@ class EscuelaController extends Controller
     {
         //
     }
+	
 }

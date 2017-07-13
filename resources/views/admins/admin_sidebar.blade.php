@@ -32,6 +32,8 @@
                 </li>
                 <li class='has_sub'><a href="{!!URL::to('/admin/roles')!!}"><i class='fa fa-key '></i><span>Roles y permisos</span></a>
                 </li>
+                <li class='has_sub'><a href="{!!URL::to('/admin/escuelas')!!}"><i class='fa fa-key '></i><span>Escuelas</span></a>
+                </li>				
             </ul>
             <div class="clearfix"></div>
         </div>

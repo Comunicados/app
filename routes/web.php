@@ -22,7 +22,6 @@ Route::get('/configuracion', function () {
         return view ('commons/configuracion');
     });
 
-
 Route::prefix('admin')->group(function () {
 
     Route::get('/', 'AdminController@index');
@@ -30,9 +29,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/personal/editar/{dni}', 'AdminController@editStaff');
     Route::get('/personal/actualizar/{dni}', 'AdminController@updateStaff');
     Route::get('/personal/eliminar/{dni}', 'AdminController@deleteStaff');
+	Route::get('/escuelas', 'EscuelaController@index');
+	Route::get('/escuelas/show/{id}', 'EscuelaController@show');
     Route::resource('/usuarios', 'UsuarioController');
     Route::resource('/materias', 'MateriaController');
     Route::resource('/roles', 'RoleController');
+    Route::resource('/escuelas', 'EscuelaController');	
 });
 
 Route::prefix('tutor')->group(function () {
