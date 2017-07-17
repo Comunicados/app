@@ -16,7 +16,7 @@ Route::get('/',function(){
 });
 
 Route::get('registrar',function(){
-	return view ('auth/register');
+	return view ('auth/registrar');
 });
 
 Route::get('/perfil', function () {
