@@ -2,7 +2,7 @@
 <div class="topbar">
     <div class="topbar-left">
         <div class="logo">
-            <h1><a href="#"><img src="{{asset('img/logo.png')}}" alt="Logo"></a></h1>
+            <h1><img src="{{asset('img/logo.png')}}" alt="Logo"></h1>
         </div>
         <button class="button-menu-mobile open-left">
             <i class="fa fa-bars"></i>
@@ -12,7 +12,7 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-collapse2">
-                <ul class="nav navbar-nav hidden-xs">
+                <!--<ul class="nav navbar-nav hidden-xs">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i></a>
                         <div class="dropdown-menu grid-dropdown">
@@ -30,7 +30,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </li>
-                </ul>
+                </ul>-->
                 <ul class="nav navbar-nav navbar-right top-navbar">
                     <li class="dropdown iconify hide-phone">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="label label-danger absolute">4</span></a>

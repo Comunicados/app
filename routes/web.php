@@ -15,6 +15,10 @@ Route::get('/',function(){
 	return view ('auth/login');
 });
 
+Route::get('registrar',function(){
+	return view ('auth/register');
+});
+
 Route::get('/perfil', function () {
         return view ('commons/perfil');
     });
