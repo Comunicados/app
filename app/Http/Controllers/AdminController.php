@@ -30,7 +30,7 @@ class AdminController extends Controller
 
     public function showStaff()
     {
-        
+
         $staff =DB::table('users')
                 ->join('school_staff', 'users.dni', '=', 'school_staff.dni')
                 ->join('staff_role', 'school_staff.dni', '=', 'staff_role.dni')
@@ -66,6 +66,7 @@ class AdminController extends Controller
 
         return Redirect::to('admin/personal');
     }
+
 
 
 
