@@ -32,22 +32,31 @@ Route::prefix('admin')->group(function () {
     Route::get('/personal', 'AdminController@showStaff');
     Route::get('/personal/editar/{dni}', 'AdminController@editStaff');
     Route::get('/personal/actualizar/{dni}', 'AdminController@updateStaff');
-    Route::get('/personal/eliminar/{dni}', 'AdminController@deleteStaff');
+    Route::get('/personal/cambiarEstado/{dni}', 'AdminController@changeStateStaff');
+		Route::get('/crearPersonal', 'AdminController@createPersonal');
+		Route::post('/crearPersonal','AdminController@createPersonalForm');
+		Route::get('/alumnos', 'AdminController@showAlumno');
+
+		Route::get('/tutores', 'AdminController@showTutor');
+
+		Route::get('/rolesypermisos', 'AdminController@setearPermisos');
+		Route::post('/rolesypermisos', 'AdminController@actualizarPermisos');
+		Route::get('/consultarPermisos', 'AdminController@consultarPermisos');
 
 	Route::get('/escuelas', 'EscuelaController@index');
 	Route::get('/escuelas/show/{id}', 'EscuelaController@show');
-	
+
 	Route::get('/materias', 'MateriaController@index');
 	Route::get('/materias/show/{id}', 'MateriaController@show');
-	
+
 	Route::get('/cursos', 'CursoController@index');
-	Route::get('/cursos/show/{id}', 'CursoController@show');	
-	
+	Route::get('/cursos/show/{id}', 'CursoController@show');
+
     Route::resource('/usuarios', 'UsuarioController');
     Route::resource('/materias', 'MateriaController');
 	Route::resource('/cursos', 'CursoController');
     Route::resource('/roles', 'RoleController');
-    Route::resource('/escuelas', 'EscuelaController');	
+    Route::resource('/escuelas', 'EscuelaController');
 });
 
 Route::prefix('tutor')->group(function () {
@@ -67,17 +76,17 @@ Route::prefix('tutor')->group(function () {
     Route::get('/calificaciones', function () {
         return view ('commons/calificaciones');
     });
-    
+
     Route::get('/permisos', function () {
         return view ('parents/permisos');
     });
-    
+
     Route::get('/calendario', function () {
         return view ('commons/calendario');
     });
 
     Route::resource('/mensajes', 'MensajeController');
-	
+
 	Route::get('/comportamiento', function () {
         return view ('commons/comportamiento');
     });
@@ -113,17 +122,17 @@ Route::prefix('alumno')->group(function () {
     Route::get('/calificaciones', function () {
         return view ('commons/calificaciones');
     });
-    
+
     Route::get('/calendario', function () {
         return view ('commons/calendario');
     });
 
     Route::resource('/mensajes', 'MensajeController');
-	
+
 	Route::get('/comportamiento', function () {
         return view ('commons/comportamiento');
     });
-        
+
         Route::prefix('calificaciones')->group(function() {
             Route::get('/mat1', function () {
                 return view ('students/mat1');
@@ -163,4 +172,3 @@ Route::prefix('personal')->group(function () {
 
 
 Auth::routes();
-

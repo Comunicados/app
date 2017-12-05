@@ -26,16 +26,49 @@
             <ul>
                 <li class=''><a href="{!!URL::to('/admin')!!}"><i class='fa fa-bar-chart'></i><span>Estadísticas</span></a>
                 </li>
-                <li class=''><a href="{!!URL::to('/admin/personal')!!}"><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
+                <li class='has_sub'><a href=""><i class='fa fa-user-plus'></i><span>Usuarios</span></a>
+                  <ul>
+                    <li class='has_sub'><a href="{!!URL::to('/admin/personal')!!}"><i class='fa fa-user-plus'></i><span>Personal</span></a>
+                      <ul>
+                        <li><a href="{!!URL::to('/admin/personal')!!}"><span>Consultar</span></a></li>
+                        <li><a href="{!!URL::to('/admin/crearPersonal')!!}"><span>Crear</span></a></li>
+                      </ul>
+                    </li>
+                    <li class='has_sub'><a href=""><i class='fa fa-user-plus'></i><span>Alumnos</span></a>
+                      <ul>
+                        <li><a href="{!!URL::to('/admin/alumnos')!!}"><span>Consultar</span></a></li>
+                        <li><a href="{!!URL::to('/admin/crearAlumnos')!!}"><span>Crear</span></a></li>
+                      </ul>
+                    </li>
+                    <li class='has_sub'><a href=""><i class='fa fa-user-plus'></i><span>Tutores</span></a>
+                      <ul>
+                        <li><a href="{!!URL::to('/admin/tutores')!!}"><span>Consultar</span></a></li>
+                        <li><a href="{!!URL::to('/admin/crearTutores')!!}"><span>Crear</span></a></li>
+                      </ul>
+                    </li>
+                </ul>
                 </li>
-                <li class=''><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias</span></a>
+                  <ul>
+                    <li><a href="{!!URL::to('/admin/materias')!!}"><span>Consultar</span></a></li>
+                    <li><a href="{!!URL::to('/admin/crearMaterias')!!}"><span>Crear</span></a></li>
+                  </ul>
                 </li>
-                <li class=''><a href="{!!URL::to('/admin/cursos')!!}"><i class='fa fa-book '></i><span>Cursos</span></a>
-                </li>				
-                <li class=''><a href="{!!URL::to('/admin/roles')!!}"><i class='fa fa-key '></i><span>Roles y permisos</span></a>
+                <li class='has_sub'><a href="{!!URL::to('/admin/cursos')!!}"><i class='fa fa-book '></i><span>Cursos</span></a>
+                  <ul>
+                    <li><a href="{!!URL::to('/admin/cursos')!!}"><span>Consultar</span></a></li>
+                    <li><a href="{!!URL::to('/admin/crearCursos')!!}"><span>Crear</span></a></li>
+                  </ul>
+                </li>
+                <li class='has_sub'><a href='/admin/rolesypermisos'><i class='fa fa-key '></i><span>Roles y permisos</span></a>
+                  <ul>
+                      <li><a href="{!!URL::to('/admin/rolesypermisos')!!}"><span>Dar de alta</span></a></li>
+                      <li><a href='/admin/rolesypermisos'><span>Modificar</span></a></li>
+                      <li><a href='/admin/consultarPermisos'><span>Consultar</span></a></li>
+                  </ul>
                 </li>
                 <li class=''><a href="{!!URL::to('/admin/escuelas')!!}"><i class='fa fa-key '></i><span>Escuelas</span></a>
-                </li>				
+                </li>
             </ul>
             <div class="clearfix"></div>
         </div>
