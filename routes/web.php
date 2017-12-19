@@ -29,15 +29,26 @@ Route::get('/configuracion', function () {
 Route::prefix('admin')->group(function () {
 
     Route::get('/', 'AdminController@index');
+
     Route::get('/personal', 'AdminController@showStaff');
     Route::get('/personal/editar/{dni}', 'AdminController@editStaff');
     Route::get('/personal/actualizar/{dni}', 'AdminController@updateStaff');
     Route::get('/personal/cambiarEstado/{dni}', 'AdminController@changeStateStaff');
 		Route::get('/crearPersonal', 'AdminController@createPersonal');
 		Route::post('/crearPersonal','AdminController@createPersonalForm');
-		Route::get('/alumnos', 'AdminController@showAlumno');
 
-		Route::get('/tutores', 'AdminController@showTutor');
+		Route::get('/alumnos', 'AdminController@showAlumnos');
+		Route::get('/alumnos/editar/{dni}', 'AdminController@editStudent');
+		Route::get('/alumnos/actualizar/{dni}', 'AdminController@updateStudent');
+		Route::get('/alumnos/cambiarEstado/{dni}', 'AdminController@changeStateStudent');
+		Route::get('/crearAlumnos', 'AdminController@createStudent');
+
+
+		Route::get('/tutores', 'AdminController@showTutors');
+		Route::get('/alumnos/cambiarEstado/{dni}', 'AdminController@changeStateTutor');
+		Route::get('/crearTutor', 'AdminController@createTutor');
+		Route::post('/crearTutor','AdminController@createTutorForm');
+
 
 		Route::get('/rolesypermisos', 'AdminController@setearPermisos');
 		Route::post('/rolesypermisos', 'AdminController@actualizarPermisos');
@@ -49,12 +60,16 @@ Route::prefix('admin')->group(function () {
 	Route::get('/materias', 'MateriaController@index');
 	Route::get('/materias/show/{id}', 'MateriaController@show');
 
+  Route::resource('/cursos', 'CursoController');
 	Route::get('/cursos', 'CursoController@index');
 	Route::get('/cursos/show/{id}', 'CursoController@show');
+	Route::get('/crear_curso', 'CursoController@createCurse');
+	Route::post('/crear_curso', 'CursoController@createCurseForm');
+	Route::get('/cursos/cambiar_curso/{id}', 'CursoController@changeCurse');
 
     Route::resource('/usuarios', 'UsuarioController');
     Route::resource('/materias', 'MateriaController');
-	Route::resource('/cursos', 'CursoController');
+
     Route::resource('/roles', 'RoleController');
     Route::resource('/escuelas', 'EscuelaController');
 });

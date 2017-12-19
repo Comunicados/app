@@ -43,7 +43,7 @@
 						<div class="col-md-12">
 							<div class="mail-list">
 							<div class="clearfix"></div>
-							
+
 							<!-- Toolbar message -->
 							<div class="data-table-toolbar">
 								<div class="row">
@@ -71,8 +71,8 @@
 								</div><!-- End div .row -->
 							</div><!-- End div .data-table-toolbar -->
 							<!-- End toolbar message -->
-							
-							
+
+
 							<!-- Message table -->
 							<div class="table-responsive">
 								<table class="table table-hover table-message">
@@ -85,8 +85,9 @@
 											<td>AULA</td>
 											<td>TURNO</td>
 											<td>FECHA</td>
-											<td>OPERACION</td>											
-										</tr>									
+											<td>OPERACION</td>
+                      <td>MODIFICAR</td>
+										</tr>
 									</thead>
 									<tbody>
 										@foreach($courses as $course)
@@ -99,8 +100,11 @@
 											<td>{{$course->turno}}</td>
 											<td>{{$course->created_at}}</td>
 											<td>
-											<a href="{{Request::url('/admin/cursos/show')}}/{{$course->id}}" class="btn btn-success btn-sm" role="button">Ver</a>
-											</td>											
+											<a href='/admin/cursos/show/{{$course->id}}' class="btn btn-success btn-sm" role="button">Ver</a>
+											</td>
+                      <td>
+											<a href='/admin/cursos/cambiar_curso/{{$course->id}}' class="btn btn-success btn-sm" role="button">Modificar</a>
+											</td>
 										</tr>
 
 										@endforeach
@@ -109,7 +113,7 @@
 								</table>
 							</div><!-- End div .table-responsive -->
 							<!-- End message table -->
-							
+
 							<!-- Footer message toolbar -->
 							<div class="data-table-toolbar-footer">
 								<div class="pull-right">

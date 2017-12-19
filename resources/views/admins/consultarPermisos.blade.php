@@ -15,7 +15,7 @@
 @endsection
 
 @section ('content')
-      <h1>DAR DE ALTA ROLES Y PERMISOS<h1>
+      <h1><i class='fa fa-key'></i>Consultar permisos</h1>
         <table class="table table-hover" style="font-size:14px; border-collapse: collapse;  border: blue 3px solid;">
         <tr>
           <th style="font-size:25px; font-weight:bold;">Rol</th>
@@ -39,30 +39,7 @@
         </tr>
         @endforeach
         </table>
-          <form role="form" action="/admin/rolesypermisos" method="post" class="form-horizontal">
-               {{ csrf_field() }}
-             <div class="form-group">
-                <div class="col-md-6">
-                    <h3>Seleccione el tipo de usuario<h3>
-                    <select class="form-control input-invis"  name="rol"   style="font-size:20px;">
-                      @foreach ($roles as $rol)
-                        <option value="{{$rol->id}}" >{{$rol->cargo}}</option>
-                      @endforeach
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <h3>Seleccione los tipos de permisos que desea otorgarle<h3>
-                      @foreach ($permisos as $permiso)
-                        <input type="checkbox" name="{{$permiso->id}}"  value="1">{{$permiso->nombre}} </br>
-                      @endforeach
-                </div>
-              </div>
-              <div class="col-md-12">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <button type="submit" class="btn btn-lg btn-success"><i class="icon-paper-plane-1"></i> Guardar cambios</button>
-              </div>
 
-              </div>
             <!------------------------------------------------------------------------>
   @include('layouts.footer')
 @endsection

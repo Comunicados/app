@@ -15,7 +15,7 @@
 @section ('content')
 	<!-- Page Heading Start -->
 	<div class="page-heading">
-		<h1><i class='fa fa-envelope'></i>Staff del colegio</h1>
+		<h1><i class='fa fa-envelope'></i>Alumnos del colegio</h1>
 	</div>
 	<!-- Page Heading End-->
 	<!-- Your awesome content goes here -->
@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<div class="widget">
 				<div class="widget-header">
-					<h2><strong>Personal</strong></h2>
+					<h2><strong>Alumnos</strong></h2>
 					<div class="additional-btn">
 						<a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
 						<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
@@ -38,11 +38,14 @@
 							<table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 								<thead>
 									<tr>
-										<th>Legajo</th>
+										<th>Matricula</th>
 										<th>DNI</th>
 										<th>Nombre</th>
 										<th>Escuela</th>
-										<th>Cargo</th>
+										<th>Año</th>
+										<th>Nivel</th>
+										<th>Aula</th>
+										<th>Turno</th>
 										<th>Estado</th>
 										<th>Admin</th>
 										<th>Editar</th>
@@ -52,11 +55,14 @@
 
 								<tfoot>
 									<tr>
-										<th>Legajo</th>
+										<th>Matricula</th>
 										<th>DNI</th>
 										<th>Nombre</th>
 										<th>Escuela</th>
-										<th>Cargo</th>
+										<th>Año</th>
+										<th>Nivel</th>
+										<th>Aula</th>
+										<th>Turno</th>
 										<th>Estado</th>
 										<th>Admin</th>
 										<th>Editar</th>
@@ -65,30 +71,32 @@
 								</tfoot>
 
 								<tbody>
-									@foreach($staff as $ustaff)
+									@foreach($alumno as $alum)
 									<tr>
-										<td>{{$ustaff->n_legajo}}</td>
-										<td>{{$ustaff->dni}}</td>
-										<td>{{$ustaff->nombre}}.{{$ustaff->apellido}}</td>
-										<td>{{$ustaff->escuela}}</td>
-										<td>{{$ustaff->cargo}}</td>
-										<td>@if($ustaff->estado==1)
+										<td>{{$alum->n_matricula}}</td>
+										<td>{{$alum->dni}}</td>
+										<td>{{$alum->nombre}}.{{$alum->apellido}}</td>
+										<td>{{$alum->escuela}}</td>
+										<td>{{$alum->grado}}</td>
+										<td>{{$alum->nivel}}</td>
+										<td>{{$alum->aula}}</td>
+										<td>{{$alum->turno}}</td>
+										<td> @if($alum->estado==1)
 											Activo
 											@else
 											De baja
-											@endif
-										</td>
-										<td>{{$ustaff->admin}}</td>
+											@endif </td>
+										<td>{{$alum->admin}}</td>
 										<td>
-											<a href="/admin/personal/editar/{{ $ustaff->dni }}" class="btn btn-success btn-sm" role="button">Editar</a>
+											<a href="/admin/alumnos/editar/{{ $alum->dni }}" class="btn btn-success btn-sm" role="button">Editar</a>
 										</td>
 										<td>
-											<a href="/admin/personal/cambiarEstado/{{ $ustaff->dni }}" class="btn btn-success btn-sm" role="button">
-												@if($ustaff->estado==1)
-												Dar de baja
-												@else
-												Dar de alta
-												@endif</a>
+											<a href="/admin/alumnos/cambiarEstado/{{ $alum->dni }}" class="btn btn-success btn-sm" role="button">
+											@if($alum->estado==1)
+											Dar de baja
+											@else
+											Dar de alta
+											@endif</a>
 										</td>
 									</tr>
 									@endforeach

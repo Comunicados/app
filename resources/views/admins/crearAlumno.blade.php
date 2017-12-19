@@ -15,7 +15,7 @@
 @section ('content')
 	<!-- Page Heading Start -->
 	<div class="page-heading">
-		<h1><i class='fa fa-envelope'></i>Crear Personal (staff)</h1>
+		<h1><i class='fa fa-envelope'></i>Crear Alumno </h1>
 	</div>
 	<!-- Page Heading End-->
 	<!-- Your awesome content goes here -->
@@ -31,16 +31,16 @@
 				<div class="widget-content">
 					<br>
 					<div class="table-responsive">
-						<form class='form-horizontal' role="form" action="/admin/crearPersonal" method="post" >
+						<form class='form-horizontal' role="form" action="/admin/crearAlumnos" method="post" >
 							<table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 								<tbody  class="col-md-6">
 									<tr>
-										<td  class="col-md-6">Seleccione rol de personal que desea crear: </td>
+										<td  class="col-md-6">Seleccione el curso </td>
 										<td class="col-md-6">
-											<select class="form-control input-invis" style="font-size:20px;"  id="rol" name="rol">
+											<select class="form-control input-invis" style="font-size:20px;"  id="curso" name="curso">
 											 <option value="0">seleccione</option>
-										    @foreach ($role as $rol)
-										     <option value="{{$rol->id}}">{{$rol->cargo}}</option>
+										    @foreach ($cursos as $curso)
+										     <option value="{{$curso->id}}">año-{{$curso->grado}}/nivel-{{$curso->nivel}}/aula-{{$curso->aula}}/turno-{{$curso->turno}}</option>
 										    @endforeach
 			   							</select>
 										</td>

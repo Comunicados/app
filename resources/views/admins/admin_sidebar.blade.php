@@ -13,8 +13,14 @@
                 <a href="" class="rounded-image profile-image"><img src="{{asset('img/users/user-100.jpg')}}"></a>
             </div>
             <div class="col-xs-8">
-                <div class="profile-text">{!!(Auth::user()->tipo)!!}. <b>{!!(Auth::user()->nombre)!!}</b></div>
-                <div class="profile-button">Escuela Nº12. San Justo</b></div>
+                <?php   $school =DB::table('users')
+                          ->join('security_admins', 'security_admins.dni', '=', 'users.dni')
+                          ->join('schools', 'schools.id', '=', 'security_admins.escuela_id')
+                          ->select('schools.modalidad as modalidad','schools.nivel as nivel','schools.numero as numero','schools.nombre as nombre')
+                          ->where('security_admins.dni',Auth::user()->dni)
+                          ->get();?>
+                <div class="profile-text">{!!(Auth::user()->tipo)!!}. <b>{!!(Auth::user()->nombre)!!}</b> </div>
+                <div class="profile-button">{{$school{0}->nombre}}</b></div>
             </div>
         </div>
         <!--- Divider -->
@@ -43,31 +49,30 @@
                     <li class='has_sub'><a href=""><i class='fa fa-user-plus'></i><span>Tutores</span></a>
                       <ul>
                         <li><a href="{!!URL::to('/admin/tutores')!!}"><span>Consultar</span></a></li>
-                        <li><a href="{!!URL::to('/admin/crearTutores')!!}"><span>Crear</span></a></li>
+                        <li><a href="{!!URL::to('/admin/crearTutor')!!}"><span>Crear</span></a></li>
                       </ul>
                     </li>
                 </ul>
                 </li>
-                <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias</span></a>
+              <!--  <li class='has_sub'><a href="{!!URL::to('/admin/materias')!!}"><i class='fa fa-book '></i><span>Materias</span></a>
                   <ul>
                     <li><a href="{!!URL::to('/admin/materias')!!}"><span>Consultar</span></a></li>
                     <li><a href="{!!URL::to('/admin/crearMaterias')!!}"><span>Crear</span></a></li>
                   </ul>
-                </li>
+                </li>-->
                 <li class='has_sub'><a href="{!!URL::to('/admin/cursos')!!}"><i class='fa fa-book '></i><span>Cursos</span></a>
                   <ul>
                     <li><a href="{!!URL::to('/admin/cursos')!!}"><span>Consultar</span></a></li>
-                    <li><a href="{!!URL::to('/admin/crearCursos')!!}"><span>Crear</span></a></li>
+                    <li><a href="{!!URL::to('/admin/crear_curso')!!}"><span>Crear</span></a></li>
                   </ul>
                 </li>
                 <li class='has_sub'><a href='/admin/rolesypermisos'><i class='fa fa-key '></i><span>Roles y permisos</span></a>
                   <ul>
-                      <li><a href="{!!URL::to('/admin/rolesypermisos')!!}"><span>Dar de alta</span></a></li>
-                      <li><a href='/admin/rolesypermisos'><span>Modificar</span></a></li>
+                      <li><a href="{!!URL::to('/admin/rolesypermisos')!!}"><span>Dar de alta /modificar</span></a></li>
                       <li><a href='/admin/consultarPermisos'><span>Consultar</span></a></li>
                   </ul>
                 </li>
-                <li class=''><a href="{!!URL::to('/admin/escuelas')!!}"><i class='fa fa-key '></i><span>Escuelas</span></a>
+                <li class=''><a href="{!!URL::to('/admin/escuelas')!!}"><i class='fa fa-university'></i><span>Escuelas</span></a>
                 </li>
             </ul>
             <div class="clearfix"></div>

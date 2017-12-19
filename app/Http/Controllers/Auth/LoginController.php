@@ -4,6 +4,8 @@ namespace Comunicados\Http\Controllers\Auth;
 
 use Comunicados\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Comunicados\School;
+use DB;
 use Auth;
 
 class LoginController extends Controller
@@ -45,10 +47,10 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        switch(Auth::user()->tipo)
+      switch(Auth::user()->tipo)
         {
             case 'admin':
-                return '/admin';
+                return  '/admin';
                 break;
             case 'tutor':
                 return '/tutor';
@@ -64,4 +66,3 @@ class LoginController extends Controller
     }
 
 }
-

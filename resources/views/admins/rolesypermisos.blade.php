@@ -15,7 +15,7 @@
 @endsection
 
 @section ('content')
-      <h1>DAR DE ALTA ROLES Y PERMISOS<h1>
+      <h1><i class='fa fa-key'></i>Dar de alta / modificar roles y permisos</h1>
 
           <form role="form" action="/admin/rolesypermisos" method="post" class="form-horizontal">
                {{ csrf_field() }}
